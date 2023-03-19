@@ -1,0 +1,580 @@
+@charset "utf-8";
+/* ==========================================================================
+   1. CSS Reset Code
+   ========================================================================== */
+
+/* 1.1. Eric Meyers Reset
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   ========================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* Force scrollbar */
+html { overflow-y: scroll; }
+
+/* Align radios and text inputs with their label */
+
+input[type='radio'] { vertical-align: text-bottom; }
+
+/* Hand cursor on clickable input elements */
+label,
+input[type='button'],
+input[type='submit'],
+button {
+  cursor: pointer;
+}
+
+strong {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+em { font-style: italic; }
+
+img {
+  width: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+
+sub,
+sup {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 55%;
+  line-height: 0;
+}
+
+sup { top: -.7em; }
+sub { bottom: -.25em; }
+
+/* 1.2. Clear Fix
+   ========================== */
+
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+
+/*for all*/
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+a { 
+  display: inline-block;
+  transition: all 0.3s;
+  text-decoration: none; 
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+/*for wrapper*/
+.wrapper {
+  max-width: 1360px;
+  width: 90.4%; 
+  margin: 0 auto;
+}
+
+/* common styling starts here */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --bg-header: #101d3a;
+  --bg-footer: #020b13;
+  --bg-para: #34434f;
+  --bg-event1: #122635;
+  --bg-event2: #101f28;
+  --bg-event3: #202727;
+  --clr-para: #c1c7cd;
+  --clr-pink: #aa14cc;
+  --clr-white: #fff;
+}
+
+span { display: inline-block; }
+
+::first-letter {
+  text-transform: uppercase;
+}
+
+.section-title {
+  color: var(--clr-white);
+  font-size: 34px;
+  font-weight: 600;
+}
+
+.section-para {
+  margin: 35px 0 64px;
+  color: var(--clr-para);
+  font-size: 18px;
+}
+
+.event-one ul a,
+.event-two .event-galley-list a,
+.event-three ul a {
+  position: relative;
+  color: var(--clr-para);
+  font-size: 46px;
+}
+
+.event-one ul a::before,
+.event-two .event-galley-list a::before,
+.event-three ul a::before {
+  content: '\f04b';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'fontAwesome';
+  text-indent: 0;
+  transition: 0.3s;
+  text-shadow: 0 0 5px var(--bg-para);
+}
+
+.event-one .wrapper,
+.event-two .wrapper,
+.event-three .wrapper,
+footer .wrapper {
+  padding: 100px 0 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.event-one ul,
+.event-three ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.event-one ul img,
+.event-three ul img {
+  border-radius: 5px 5px 0 0;
+}
+
+.event-one ul p,
+.event-three ul p {
+  padding: 34px 10px 34px 30px;
+  border-radius: 0 0 5px 5px;
+  background-color: var(--bg-para);
+  color: var(--clr-para);
+  font-size: 18px;
+}
+
+/* common styling ends here */
+
+/*=================================
+  Header styling starts here
+=================================*/
+
+header { position: relative; }
+
+header .wrapper {
+  width: 100%;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  background-color: var(--bg-header);
+}
+
+header a[title="Broadcast"] {
+  z-index: 12;
+  overflow: hidden;
+}
+
+header a[title="Broadcast"] img {
+  transition: all 0.3s;
+}
+
+.menu-toggle-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 12;
+}
+
+.menu-toggle-box span {
+  margin-left: 8px;
+  color: var(--clr-para);
+  font-size: 14px;
+}
+.menu-toggle {
+  width: 13px;
+  height: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu-toggle .bar {
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  transition: all 0.3s;
+  background-color: var(--clr-para);
+}
+
+.menu-toggle .bar1 {
+  box-shadow: 0 4px 0 0 var(--clr-para);
+}
+
+.menu-toggle-box:hover .bar1 {
+  transform: translateY(4px) rotate(45deg) scale(1.1);
+  box-shadow: none;
+}
+
+.menu-toggle-box:hover .bar2 {
+  transform: translateY(-4px) rotate(135deg) scale(1.1);
+}
+
+header nav {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: -100%;
+  left: 0;
+  z-index: 8;
+  transition: all 0.3s;
+  background-color: darkred;
+}
+
+.menu-toggle-box:hover ~ nav { top: 0; }
+
+header nav ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  background-color: var(--bg-header);
+}
+
+nav a {
+  padding: 5px;
+  color: var(--clr-para);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/*=================================
+  Header styling ends here
+=================================*/  
+
+/*=================================
+  main styling starts here
+=================================*/
+
+/* banner section styling starts here */
+
+.banner  {
+  width: 100%;
+  height: 100vh;
+}
+
+.banner .wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.banner .wrapper > figure {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.banner .wrapper > figure img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner .banner-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(17, 30, 56, 0.5);
+  text-align: center;
+}
+
+.banner-content h1 {
+  transform: scaleX(0.86);
+  color: var(--clr-white);
+  font-size: calc(1.62vw + 32px);
+  font-weight: 800;
+}
+
+.banner-content p {
+  padding: 0 25%;
+  margin: 25px 0 35px;
+  color: var(--clr-para);
+  font-size: 21px;
+  line-height: 1.8;
+  word-spacing: 2px;
+}
+
+.banner-content a {
+  padding: 16px 28px;
+  border: 2px solid var(--clr-para);
+  border-radius: 4px;
+  margin-bottom: 17px;
+  color: var(--clr-white);
+  font-size: 19px;
+  font-weight: 600;
+}
+
+/* banner section styling ends here */
+
+/* event one section styling starts here */
+
+.event-one { background-color: var(--bg-event1); }
+
+.event-one ul { gap: 50px; }
+
+/* event one section styling ends here */
+
+/* event two section styling starts here */
+
+.event-two { background-color: var(--bg-event2); }
+
+.event-two .section-title,
+.event-two .section-para {
+  align-self: flex-start;
+}
+
+.event-two-gallery {
+  display: flex;
+  gap: 46px;
+}
+
+.event-gallery-control {
+  flex-basis: 39.5%;
+}
+
+.event-gallery-control li {
+  width: 100%;
+  margin: 0 7px;
+}
+
+.event-gallery-control li a {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 7px;
+  border-radius: 5px;
+  background-color: var(--bg-para);
+  color: var(--clr-para);
+  font-size: 14px;
+  word-spacing: 1px;
+}
+
+.event-gallery-control li:first-child a {
+  color: var(--clr-white);
+  background-color: var(--clr-pink);
+} 
+
+.event-galley-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+}
+
+.event-galley-list li {
+  flex-basis: 30.8%;
+}
+
+/* event two section styling ends here */
+
+/* event three section styling starts here */
+
+.event-three { background-color: var(--bg-event3); }
+
+.event-three ul {
+  gap: 45px;
+}
+.event-three ul li {
+  flex-basis: 33%;
+}
+
+/* event three section styling ends here */
+
+/*=================================
+  main styling ends here
+=================================*/
+
+/*=================================
+  footer styling starts here
+=================================*/ 
+
+footer { background-color: var(--bg-footer); }
+footer a { color: var(--clr-para); }
+footer .wrapper { padding: 96px 0 92px; }
+
+.footer-top {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 45px;
+}
+
+.footer-top .footer-top-list {
+  flex-basis: 33%;
+}
+
+.footer-top-list ul li {
+  width: 100%;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--bg-para);
+  display: block;
+  font-size: 15px;
+}
+
+.footer-top-list ul li:first-child {
+  padding: 0;
+  margin-bottom: 20px;
+  border-bottom: none;
+  color: var(--clr-white);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.footer-top-list ul li:last-child { border-bottom: none; }
+
+.footer-social-icon {
+  margin: 64px 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 38px;
+}
+
+.footer-social-icon a {
+  position: relative;
+  font-size: 26px;
+  text-indent: -99999px;
+}
+
+.footer-social-icon a::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s;
+  font-family: 'fontAwesome';
+  text-indent: 0;
+}
+
+.footer-social-icon li:nth-child(1) a::before { content: '\f099'; }
+.footer-social-icon li:nth-child(2) a::before { content: '\f09a'; }
+.footer-social-icon li:nth-child(3) a::before { content: '\f16d'; }
+.footer-social-icon li:nth-child(4) a::before { content: '\f2ab'; }
+
+footer p {
+  color: var(--bg-para);
+  font-size: 13px;
+}
+
+footer a[title='Templated'] { text-transform: uppercase; }
+
+ /*=================================
+  footer styling ends here
+=================================*/ 
+
+/*media query starts*/
+/*media query for min-width: 1024px starts here*/
+@media only screen and (min-width: 1024px) {
+
+  .event-one ul a:hover::before,
+  .event-two .event-galley-list a:hover::before,
+  .event-three ul a:hover::before {
+    color: var(--clr-pink);
+    text-shadow: none;
+  }
+
+  header a[title="Broadcast"]:hover img {
+    transform: scale(1.1);
+  }
+
+  nav a:hover { color: var(--clr-pink); }
+
+  .banner-content a:hover {
+    border-color: var(--clr-pink);
+    background-color: var(--clr-pink);
+  }
+
+  .event-gallery-control li a:hover {
+    color: var(--clr-white);
+    background-color: var(--clr-pink);
+  }
+
+  .footer-top-list a:hover {
+    padding: 0 10px;
+    color: var(--clr-pink);
+  }
+
+  .footer-social-icon a:hover::before { color: var(--clr-pink); }
+
+  footer p a:hover {
+    color: var(--clr-pink);
+    text-decoration: underline;
+  }
+
+}  
+
+/*media query for max-width: 995px starts here*/
+@media only screen and (max-width: 995px) {
+  
+}
